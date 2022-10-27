@@ -10,8 +10,8 @@
 
 // If the <input> goes back to being empty, update the <h1> so that it once again says "Enter Your Username"
 
-header = document.querySelector("h1");
-txtField = document.querySelector("input");
+const header = document.querySelector("h1");
+const txtField = document.querySelector("input");
 
 txtField.addEventListener('input', function () {
     if (txtField.value !== "") {
