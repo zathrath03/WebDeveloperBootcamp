@@ -33,11 +33,13 @@ function check_winner(player_score) {
 
 }
 
-reset_button.addEventListener('click', function () {
+reset_button.addEventListener('click', reset);
+
+function reset() {
     player_1_score.innerText = "0";
     player_2_score.innerText = "0";
     player_1_score.style.color = "black";
     player_2_score.style.color = "black";
     player_1_button.disabled = false;
     player_2_button.disabled = false;
-})
+}
