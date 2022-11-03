@@ -1,10 +1,10 @@
-player_1_score = document.querySelector("#player_1_score");
-player_2_score = document.querySelector("#player_2_score");
-winning_score = document.querySelector("#winning_score");
+const player_1_score = document.querySelector("#player_1_score");
+const player_2_score = document.querySelector("#player_2_score");
+const winning_score = document.querySelector("#winning_score");
 
-player_1_button = document.querySelector("#increment_player_1");
-player_2_button = document.querySelector("#increment_player_2");
-reset_button = document.querySelector("#reset");
+const player_1_button = document.querySelector("#increment_player_1");
+const player_2_button = document.querySelector("#increment_player_2");
+const reset_button = document.querySelector("#reset");
 
 player_1_button.addEventListener('click', function () {
     current_score = parseInt(player_1_score.innerText);
