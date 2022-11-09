@@ -1,26 +1,31 @@
-const player_1_score = document.querySelector("#player_1_score");
-const player_2_score = document.querySelector("#player_2_score");
-const winning_score = document.querySelector("#winning_score");
+const player1 = {
+    score: document.querySelector("#player_1_score"),
+    button: document.querySelector("#increment_player_1")
+};
 
-const player_1_button = document.querySelector("#increment_player_1");
-const player_2_button = document.querySelector("#increment_player_2");
+const player2 = {
+    score: document.querySelector("#player_2_score"),
+    button: document.querySelector("#increment_player_2")
+};
+
+const winning_score = document.querySelector("#winning_score");
 const reset_button = document.querySelector("#reset");
 
-player_1_button.addEventListener('click', function () {
-    current_score = parseInt(player_1_score.innerText);
-    player_1_score.innerText = current_score + 1;
-    if (is_winner(player_1_score)) {
+player1.button.addEventListener('click', function () {
+    current_score = parseInt(player1.score.innerText);
+    player1.score.innerText = current_score + 1;
+    if (is_winner(player1.score)) {
         disable_player_buttons();
-        update_score_colors(player_1_score, player_2_score);
+        update_score_colors(player1.score, player2.score);
     }
 });
 
-player_2_button.addEventListener('click', function () {
-    current_score = parseInt(player_2_score.innerText);
-    player_2_score.innerText = current_score + 1;
-    if (is_winner(player_2_score)) {
+player2.button.addEventListener('click', function () {
+    current_score = parseInt(player2.score.innerText);
+    player2.score.innerText = current_score + 1;
+    if (is_winner(player2.score)) {
         disable_player_buttons();
-        update_score_colors(player_2_score, player_1_score);
+        update_score_colors(player2.score, player1.score);
     }
 });
 
@@ -37,15 +42,15 @@ function is_winner(player_score) {
 }
 
 function disable_player_buttons() {
-    player_1_button.disabled = true;
-    player_2_button.disabled = true;
+    player1.button.disabled = true;
+    player2.button.disabled = true;
 }
 
 function reset() {
-    player_1_score.innerText = "0";
-    player_2_score.innerText = "0";
-    player_1_score.classList.remove('winner', 'loser');
-    player_2_score.classList.remove('winner', 'loser');
-    player_1_button.disabled = false;
-    player_2_button.disabled = false;
+    player1.score.innerText = "0";
+    player2.score.innerText = "0";
+    player1.score.classList.remove('winner', 'loser');
+    player2.score.classList.remove('winner', 'loser');
+    player1.button.disabled = false;
+    player2.button.disabled = false;
 }
