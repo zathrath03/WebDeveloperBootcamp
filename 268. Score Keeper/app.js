@@ -17,7 +17,7 @@ player1.button.addEventListener('click', function () {
     if (is_winner(player1.score)) {
         disable_player_buttons();
         update_score_colors(player1.score, player2.score);
-    }
+    };
 });
 
 player2.button.addEventListener('click', function () {
@@ -26,7 +26,7 @@ player2.button.addEventListener('click', function () {
     if (is_winner(player2.score)) {
         disable_player_buttons();
         update_score_colors(player2.score, player1.score);
-    }
+    };
 });
 
 reset_button.addEventListener('click', reset);
@@ -47,10 +47,12 @@ function disable_player_buttons() {
 }
 
 function reset() {
-    player1.score.innerText = "0";
-    player2.score.innerText = "0";
-    player1.score.classList.remove('winner', 'loser');
-    player2.score.classList.remove('winner', 'loser');
-    player1.button.disabled = false;
-    player2.button.disabled = false;
+    reset_player(player1);
+    reset_player(player2)
+}
+
+function reset_player(player) {
+    player.score.innerText = "0";
+    player.score.classList.remove('winner', 'loser');
+    player.button.disabled = false;
 }
