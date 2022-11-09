@@ -12,25 +12,28 @@ const winning_score = document.querySelector("#winning_score");
 const reset_button = document.querySelector("#reset");
 
 player1.button.addEventListener('click', function () {
-    current_score = parseInt(player1.score.innerText);
-    player1.score.innerText = current_score + 1;
+    increment_score(player1);
     if (is_winner(player1.score)) {
         disable_player_buttons();
         update_score_colors(player1.score, player2.score);
-    };
+    }
 });
 
 player2.button.addEventListener('click', function () {
-    current_score = parseInt(player2.score.innerText);
-    player2.score.innerText = current_score + 1;
+    increment_score(player2);
     if (is_winner(player2.score)) {
         disable_player_buttons();
         update_score_colors(player2.score, player1.score);
-    };
+    }
 });
 
 reset_button.addEventListener('click', reset);
 winning_score.addEventListener('change', reset);
+
+function increment_score(player) {
+    current_score = parseInt(player.score.innerText);
+    player.score.innerText = current_score + 1;
+}
 
 function update_score_colors(player, opponent) {
     player.classList.add('winner');
