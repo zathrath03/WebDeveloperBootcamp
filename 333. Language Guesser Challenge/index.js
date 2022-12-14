@@ -1,10 +1,6 @@
-// These lines make "require" available
-import { createRequire } from "module"
-const require = createRequire(import.meta.url)
-
 import { franc } from "franc"
-const langs = require("langs")
-const color = require("colors")
+import langs from "langs"
+import colors from "colors"
 
 const inputString = process.argv[2]
 const languageCode = franc(inputString)
